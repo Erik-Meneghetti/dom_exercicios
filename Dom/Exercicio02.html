@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alternar Tema</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+    <header>
+        <h1>Modo Claro/Escuro</h1>
+
+    </header>
+    <button id="botao-tema">Alternar Tema</button>
+  <script src="script.js"></script>
+    <main>
+        <ul id="lista_tarefas"> 
+            
+        </ul>
+    </main>
+    <footer></footer>
+</body>
+
+<script>
+    function adicionarTarefa() {
+        // cadastrar um item na lista:
+        //1 - Preciso ter o valor escrito da tarefa pelo meu usuario
+        let valorInput = document.getElementById("tarefa").value;
+
+        //console.log(valorInput);
+        //2-Criar a tarefa na lista
+
+        let itemlista = document.createElement("li");
+        itemlista.innerText = valorInput;
+
+        //estarei cadastrando um novo item ABAIXO do anterior:
+        document.getElementById("lista_tarefas").appendChild(itemlista);
+
+        //3- Criei o Botao de excluir
+        let botaoExcluir = document.createElement ("button");
+        botaoExcluir.innerText = "Remover item";
+
+        itemlista.appendChild(botaoExcluir);
+        //4- Assim que eu clicar no botao excluir, ele ira sair junto com o item
+        botaoExcluir.onclick = function() {
+            itemlista.remove();
+            
+            // botaoExcluir onclick = () => {
+            // itemLista.remove()
+            //}
+
+            document.getElementById("tarefa").value = "";
+        }
+
+    }
+</script>
+
+</html>
+  

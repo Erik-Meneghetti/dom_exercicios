@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lista de Camisetas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .produto {
+      border: 1px solid #ccc;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+    .produto h3 {
+      margin: 0 0 10px 0;
+    }
+    .produto p {
+      margin: 5px 0;
+    }
+    .produto button {
+      padding: 8px 16px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    #total {
+      font-weight: bold;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Lista de Camisetas</h1>
+
+  <div class="produto">
+    <h3>Camiseta Branca</h3>
+    <p>Preço: R$ 40</p>
+    <button onclick="alternarProduto(this, 28.15)">Adicionar</button>
+  </div>
+
+  <div class="produto">
+    <h3>Camiseta Preta</h3>
+    <p>Preço: R$ 50</p>
+    <button onclick="alternarProduto(this, 28.20)">Adicionar</button>
+  </div>
+
+  
+
+  <p id="total">Total: R$ 0,00</p>
+
+  <script>
+    let total = 0;
+
+    function alternarProduto(botao, preco) {
+      if (botao.innerText === "Adicionar") {
+        total += preco;
+        botao.innerText = "Remover";
+      } else {
+        total -= preco;
+        botao.innerText = "Adicionar";
+      }
+      atualizarTotal();
+    }
+
+    function atualizarTotal() {
+      document.getElementById("total").innerText = "Total: R$ " + total.toFixed(2).replace('.', ',');
+    }
+  </script>
+</body>
+</html>
+
